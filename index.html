@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Harry's IP Tool</title>
+	<meta name="viewport" content="width=device-width">
+	<style>
+	a,body{color:#000}body{background-color:#3e3e3e;font-family:helvetica;text-align:center;margin:0}.box-mid,.top-bar{background-color:#fff;margin-bottom:75px}.top-bar{padding-top:50px;padding-bottom:50px}.box-mid{padding-top:30px;padding-bottom:30px}hr{border-color:rgba(255,255,255,.3)}
+	</style>
+</head>
+<body>
+	<div class="top-bar">
+		<h1>Harry's IP Tool</h1>
+		<p>IP Information</p>
+	</div>
+	<div class="box-mid">
+		<h1>Information:</h1>
+		<hr>
+		<h3>IPV4:</h3>
+		<p id="IP"></p>
+		<hr>
+		<h3>IPV6:</h3>
+		<p id="IPV6A"></p>
+		<hr>
+		<h3>ISP:</h3>
+		<p id="ISP"></p>
+		<hr>
+		<h3>CITY:</h3>
+		<p id="CITY"></p>
+	</div>
+	<script>
+	var getIP=new XMLHttpRequest,getIPV6=new XMLHttpRequest;getIP.onreadystatechange=function(){if(4==this.readyState&&200==this.status){var e=JSON.parse(this.responseText);document.getElementById("IP").innerHTML=e.ip.ip,document.getElementById("ISP").innerHTML=e.ip.hostname,document.getElementById("CITY").innerHTML=e.ip.city}},getIPV6.onreadystatechange=function(){if(4==this.readyState&&200==this.status){var e=JSON.parse(this.responseText);document.getElementById("IPV6A").innerHTML=e.address}},getIP.open("GET","https://ip.nf/me.json",!0),getIPV6.open("GET","https://ident.me/.json",!0),getIP.send(),getIPV6.send();
+	</script>
+</body>
+</html>
