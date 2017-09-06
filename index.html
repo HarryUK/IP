@@ -22,14 +22,14 @@
 		<p id="IPV6A"></p>
 		<p style="font-size: 10px">If this is an IPv4 Address your ISP doesn't support IPv6 and I recommend you change to one that does or inform your ISP</p>
 		<hr>
-		<h3>ISP:</h3>
-		<p id="ISP"></p>
+		<h3>HOSTNAME:</h3>
+		<p id="Hostname"></p>
 		<hr>
 		<h3>CITY:</h3>
 		<p id="CITY"></p>
 	</div>
 	<script>
-	var getIP=new XMLHttpRequest,getIPV6=new XMLHttpRequest;getIP.onreadystatechange=function(){if(4==this.readyState&&200==this.status){var e=JSON.parse(this.responseText);document.getElementById("IP").innerHTML=e.ip.ip,document.getElementById("ISP").innerHTML=e.ip.hostname,document.getElementById("CITY").innerHTML=e.ip.city}},getIPV6.onreadystatechange=function(){if(4==this.readyState&&200==this.status){var e=JSON.parse(this.responseText);document.getElementById("IPV6A").innerHTML=e.address}},getIP.open("GET","https://ip.nf/me.json",!0),getIPV6.open("GET","https://ident.me/.json",!0),getIP.send(),getIPV6.send();
+	var getIP=new XMLHttpRequest,getIPV6=new XMLHttpRequest;getIP.onreadystatechange=function(){if(4==this.readyState&&200==this.status){var e=JSON.parse(this.responseText);document.getElementById("IP").innerHTML=e.ip.ip,document.getElementById("Hostname").innerHTML=e.ip.hostname,document.getElementById("CITY").innerHTML=e.ip.city}},getIPV6.onreadystatechange=function(){if(4==this.readyState&&200==this.status){var e=JSON.parse(this.responseText);document.getElementById("IPV6A").innerHTML=e.address}},getIP.open("GET","https://ip.nf/me.json",!0),getIPV6.open("GET","https://ident.me/.json",!0),getIP.send(),getIPV6.send();
 	</script>
 </body>
 </html>
